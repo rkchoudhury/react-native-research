@@ -1,17 +1,18 @@
 import React from 'react';
 import {View, Text, StyleSheet, FlatList} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
+import {useNavigation, NavigationProp} from '@react-navigation/native';
 import {HorizontalSwipeGestureHandler} from './components/HorizontalSwipeGestureHandler';
+import {HorizontalGestureRoute, HorizontalGestureParamList} from '../navigation/horizontalSwipeGestureStack';
 
 export const ScreenB = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProp<HorizontalGestureParamList>>();
 
   const handleRightSwipe = () => {
-    navigation.navigate('ScreenA');
+    navigation.goBack();
   };
 
   const handleLeftSwipe = () => {
-    navigation.navigate('ScreenC');
+    navigation.navigate(HorizontalGestureRoute.ScreenC);
   };
 
   return (

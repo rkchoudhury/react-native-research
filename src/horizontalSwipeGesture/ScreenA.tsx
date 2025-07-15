@@ -1,10 +1,11 @@
 import React from 'react';
 import {View, Text, StyleSheet, Alert} from 'react-native';
 import {HorizontalSwipeGestureHandler} from './components/HorizontalSwipeGestureHandler';
-import {useNavigation} from '@react-navigation/native';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
+import {HorizontalGestureParamList, HorizontalGestureRoute} from '../navigation/horizontalSwipeGestureStack';
 
 export const ScreenA = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationProp<HorizontalGestureParamList>>();
 
   const handleRightSwipe = () => {
     Alert.alert('Hold on!', 'Are you sure you want to leave?', [
@@ -14,7 +15,7 @@ export const ScreenA = () => {
   };
 
   const handleLeftSwipe = () => {
-    navigation.navigate('ScreenB');
+    navigation.navigate(HorizontalGestureRoute.ScreenB);
   };
 
   return (

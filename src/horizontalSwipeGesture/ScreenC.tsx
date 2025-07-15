@@ -10,7 +10,8 @@ export const ScreenC = () => {
   const navigation = useNavigation();
 
   const handleRightSwipe = () => {
-    navigation.navigate('ScreenB');
+    // navigation.navigate('ScreenB');
+    navigation.goBack();
   };
 
   const handleLeftSwipe = () => {
