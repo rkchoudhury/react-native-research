@@ -1,10 +1,22 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import { View, Text, StyleSheet, FlatList, Button } from 'react-native';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
+import {
+  RightSwipeGestureParamList,
+  RightGestureRoute,
+} from '../navigation/rightSwipeGestureStack';
 
 export const ScreenB = () => {
+  const navigation =
+    useNavigation<NavigationProp<RightSwipeGestureParamList>>();
+
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Welcome to Screen B</Text>
+      <Button
+        title="Go to Screen C"
+        onPress={() => navigation.navigate(RightGestureRoute.ScreenC)}
+      />
       <FlatList
         data={Array.from({ length: 30 }, (_, i) => `Item ${i + 1}`)}
         keyExtractor={item => item}

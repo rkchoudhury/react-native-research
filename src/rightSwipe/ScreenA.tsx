@@ -1,10 +1,15 @@
 import React from 'react';
-import { View, Text, StyleSheet, Alert } from 'react-native';
+import { View, Text, StyleSheet, Alert, Button } from 'react-native';
 import { PanRightSwipeGestureHandler } from './index';
+import {NavigationProp, useNavigation} from '@react-navigation/native';
+import {RightSwipeGestureParamList, RightGestureRoute} from '../navigation/rightSwipeGestureStack';
 
 export const ScreenA = () => {
+  const navigation = useNavigation<NavigationProp<RightSwipeGestureParamList>>();
+
   // Handling custom events
   const handleRightSwipe = () => {
+    console.log('Right swipe detected');
     Alert.alert('Hold on!', 'Are you sure you want to leave?', [
       { text: 'Cancel', style: 'cancel', onPress: () => {} },
       { text: 'Yes', style: 'destructive', onPress: () => {} },
@@ -15,6 +20,10 @@ export const ScreenA = () => {
     <PanRightSwipeGestureHandler onHandleRightSwipe={handleRightSwipe}>
       <View style={styles.container}>
         <Text style={styles.text}>Welcome to Screen A</Text>
+        <Button
+          title="Go to Screen B"
+          onPress={() => navigation.navigate(RightGestureRoute.ScreenB)}
+        />
       </View>
     </PanRightSwipeGestureHandler>
   );
