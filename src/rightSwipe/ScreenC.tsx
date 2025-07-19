@@ -1,10 +1,15 @@
 import React from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, Button } from 'react-native';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
 import CarouselContainer from 'react-native-reanimated-carousel';
+import { RightGestureRoute, RightSwipeGestureParamList } from '../navigation/rightSwipeGestureStack';
 
 const { width, height } = Dimensions.get('window');
 
 export const ScreenC = () => {
+  const navigation =
+    useNavigation<NavigationProp<RightSwipeGestureParamList>>();
+
   const renderItem = (index: number) => {
     return (
       <View style={styles.card}>
@@ -27,6 +32,10 @@ export const ScreenC = () => {
         autoPlay={false}
         mode={'parallax'}
         enabled={true}
+      />
+      <Button
+        title="Go to Screen D"
+        onPress={() => navigation.navigate(RightGestureRoute.ScreenD)}
       />
     </View>
   );
