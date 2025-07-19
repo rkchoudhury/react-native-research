@@ -1,15 +1,15 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import {
-  GestureEvent,
   GestureHandlerRootView,
-  PanGestureHandler,
-  PanGestureHandlerEventPayload,
+  Gesture,
+  GestureDetector,
 } from 'react-native-gesture-handler';
 import { usePreventRightSwipe } from '../hooks/usePreventRightSwipe';
+import { runOnJS } from 'react-native-reanimated';
 
 // Define the distance from the left edge of the screen
-const DEFAULT_DISTANCE_FROM_LEFT_EDGE = 50;
+const DEFAULT_DISTANCE_FROM_LEFT_EDGE = 100;
 
 interface PanGestureHandlerProps {
   onHandleRightSwipe: () => void;
@@ -29,25 +29,23 @@ export const PanRightSwipeGestureHandler = (props: PanGestureHandlerProps) => {
   // Disabling the default swipe right behaviour for iOS
   usePreventRightSwipe();
 
-  const handleGesture = ({
-    nativeEvent,
-  }: GestureEvent<PanGestureHandlerEventPayload>) => {
+  const panGesture = Gesture.Pan().onEnd(event => {
+    const { absoluteX, translationX } = event;
     if (
       enableRightSwipe &&
-      nativeEvent.translationX > 0 &&
-      nativeEvent.absoluteX < gestureDistanceFromLeftEdge
+      translationX > 0 &&
+      absoluteX < gestureDistanceFromLeftEdge
     ) {
+      console.log('Right swipe detected called');
       // right swipe detected within the left threshold
-      onHandleRightSwipe?.();
+      runOnJS(onHandleRightSwipe)?.();
     }
-  };
+  });
 
   if (Platform.OS === 'ios') {
     return (
       <GestureHandlerRootView>
-        <PanGestureHandler onGestureEvent={handleGesture}>
-          {children}
-        </PanGestureHandler>
+        <GestureDetector gesture={panGesture}>{children}</GestureDetector>
       </GestureHandlerRootView>
     );
   } else {
