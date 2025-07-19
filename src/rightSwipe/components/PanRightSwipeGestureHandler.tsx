@@ -8,6 +8,13 @@ import {
 import { usePreventRightSwipe } from '../hooks/usePreventRightSwipe';
 import { runOnJS } from 'react-native-reanimated';
 
+/**
+ * 1. By default, the right swipe gesture is enabled for all screens by react-navigation in iOS.
+ * 2. Using `usePreventRightSwipe` hook we can disable the default right swipe gesture of react-navigation.
+ * 3. `PanRightSwipeGestureHandler` can be used to override or extend the right swipe behavior.
+ * 4. The right swipe gesture is only applicable for iOS.
+ */
+
 // Define the distance from the left edge of the screen
 const DEFAULT_DISTANCE_FROM_LEFT_EDGE = 100;
 
