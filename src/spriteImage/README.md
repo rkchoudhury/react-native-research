@@ -1,17 +1,22 @@
 # App Optimisation - Image optimisation technique evalution
 
+- Explore following things for image optimisation,
+    1. Alternative image extension of png.
+    2. Different compression mechanisim for png.
+    3. iconography
+
 ## Alternative image extension of png:
 - SVG
     - Useful for icons, logos, and simple graphics
     - Can be scaled to any size without losing quality
-    - React Native does not natively support SVG. Use libraries like react-native-svg to display SVG images
+    - React Native does not natively support SVG. Use libraries like [react-native-svg](https://github.com/software-mansion/react-native-svg) to display SVG images
 
 - WebP
     - Smaller file size compared to PNG and JPEG.
     - Reduces file sizes while maintaining high image quality
     - But WebP is being supported iOS 14 & later.
-    - We might have to use some external library - react-native-webp-format
-    - Reduce React Native application size with WebP image format - Link
+    - We might have to use some external library - [react-native-webp-format](https://www.npmjs.com/package/react-native-webp-format)
+    - Reduce React Native application size with WebP image format - [Link](https://aleksefo.medium.com/reduce-react-native-application-size-with-webp-image-format-41bdd767a7ac)
 
 - JPEG
     - it's ideal for photographic images or complex images with many colors
@@ -19,8 +24,8 @@
 ## Different compression mechanisim for png:
 
 ### Approach 1: Utilizing compress tools
-- Utilize tools like ImageOptim or TinyPNG to compress images without quality loss.
-- TinyPNG is a web service that uses advanced lossless compression techniques to reduce the file size of PNG images.
+- Utilize tools like [ImageOptim](https://imageoptim.com/mac) or [TinyPNG](https://tinypng.com/) to compress images without quality loss.
+- [TinyPNG](https://tinypng.com/) is a web service that uses advanced lossless compression techniques to reduce the file size of PNG images.
 
 ### Approach 2: Using Sprite Sheet
 
