@@ -37,6 +37,10 @@ export const ScreenC = () => {
         title="Go to Screen D"
         onPress={() => navigation.navigate(RightGestureRoute.ScreenD)}
       />
+      <Button
+        title="Go to Screen E"
+        onPress={() => navigation.navigate(RightGestureRoute.ScreenE)}
+      />
     </View>
   );
 };

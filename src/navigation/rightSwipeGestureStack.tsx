@@ -1,11 +1,13 @@
 import { createStackNavigator } from '@react-navigation/stack';
-import { ScreenA, ScreenB, ScreenC, ScreenD } from '../rightSwipe';
+import { ScreenA, ScreenB, ScreenC, ScreenD, ScreenE } from '../rightSwipe';
 
 // Define your navigation param list type
 type RootStackParamList = {
   [RouteNames.ScreenA]: undefined;
   [RouteNames.ScreenB]: undefined;
   [RouteNames.ScreenC]: undefined;
+  [RouteNames.ScreenD]: undefined;
+  [RouteNames.ScreenE]: undefined;
 };
 
 const RouteNames = {
@@ -13,6 +15,7 @@ const RouteNames = {
   ScreenB: 'ScreenB',
   ScreenC: 'ScreenC',
   ScreenD: 'ScreenD',
+  ScreenE: 'ScreenE',
 };
 
 
@@ -30,6 +33,7 @@ function RightSwipeStack() {
         * By default the value of gestureEnabled is true for iOS
       */}
       <Stack.Screen name={RouteNames.ScreenD} component={ScreenD} options={{ gestureEnabled: false }} /> 
+      <Stack.Screen name={RouteNames.ScreenE} component={ScreenE} />
     </Stack.Navigator>
   );
 }
