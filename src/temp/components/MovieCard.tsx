@@ -17,6 +17,9 @@ const MovieCard = ({ movie }: IProps) => {
         source={{ uri: `${CDN_IMAGE_URL}${poster_path}` }}
         style={styles.image}
         borderRadius={10}
+        resizeMode={'stretch'}
+        height={180}
+        width={180}
       />
     </View>
   );
@@ -24,8 +27,7 @@ const MovieCard = ({ movie }: IProps) => {
 
 const styles = StyleSheet.create({
   image: {
-    width: 36,
-    height: 36,
+    marginRight: 5,
   },
 });
 
