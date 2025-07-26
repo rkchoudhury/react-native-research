@@ -4,7 +4,8 @@ import { movieSearchService } from '../services/movieService';
 import { SEARCH_DEBOUNCE_TIME } from '../utils/constants';
 import { IMovie } from '../model/movieModel';
 
-export const useSearchMovies = (searchedText: string) => {
+export const useSearchMovies = () => {
+  const [searchedText, setSearchedText] = useState<string>('');
   const [searchedMovies, setSearchedMovies] = useState<IMovie[]>([]);
   const [showNoResultsMessage, setShowNoResultsMessage] =
     useState<boolean>(false);
@@ -31,5 +32,9 @@ export const useSearchMovies = (searchedText: string) => {
     return () => clearTimeout(debounceTimmer);
   }, [searchedText, setSearchedMovies, setShowNoResultsMessage]);
 
-  return { searchedMovies, showNoResultsMessage };
+  return {
+    searchedMovies,
+    showNoResultsMessage,
+    setSearchedText,
+  };
 };

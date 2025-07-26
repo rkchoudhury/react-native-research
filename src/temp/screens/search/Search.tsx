@@ -3,12 +3,15 @@ import { View, StyleSheet, Text } from 'react-native';
 
 import MovieList from '../../components/MovieList';
 import { useSearchMovies } from '../../hooks/useSearchMovies';
+import { SearchBar } from '../../components/SearchBar';
 
 export const Search = () => {
-  const { searchedMovies, showNoResultsMessage } = useSearchMovies('');
+  const { searchedMovies, showNoResultsMessage, setSearchedText } =
+    useSearchMovies();
 
   return (
     <View style={styles.container}>
+      <SearchBar onChangeValue={setSearchedText} />
       {searchedMovies?.length > 0 && <MovieList movies={searchedMovies} />}
       {showNoResultsMessage && (
         <View style={styles.textContainer}>
