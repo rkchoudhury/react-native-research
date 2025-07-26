@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { SvgIcon } from './components/SpriteIcon';
 import {
   SOCIAL_MEDIA_SHEET,
@@ -8,8 +8,8 @@ import {
 
 const SpriteSVGExample = () => {
   return (
-    <SafeAreaView>
-      <View>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.content}>
         <Text>Sprite SVG Example</Text>
         <SvgIcon
           {...SOCIAL_MEDIA_SHEET}
@@ -24,5 +24,16 @@ const SpriteSVGExample = () => {
     </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  content: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 
 export default SpriteSVGExample;
