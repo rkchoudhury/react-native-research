@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { ServiceIdentifier } from 'inversify';
-import { InversifyContext } from '../providers/InversifyContext';
+import { InversifyContext } from '../contexts/InversifyContext';
 
 const useInjection = <T>(identifier: ServiceIdentifier<T>): T => {
   const container = useContext(InversifyContext);
@@ -14,4 +14,4 @@ const useInjection = <T>(identifier: ServiceIdentifier<T>): T => {
   return container.get<T>(identifier);
 };
 
-export default useInjection;
+export { useInjection };

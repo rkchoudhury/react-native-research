@@ -18,4 +18,4 @@ const InversifyProvider: React.FC<InversifyProviderProps> = ({
   );
 };
 
-export default InversifyProvider;
+export { InversifyProvider };
