@@ -1,5 +1,12 @@
 # Clean Architecture with MVVM Patterns
 
+## Architecture Overview
+The application follows `Clean Architecture` with `MVVM` pattern using:
+
+- Dependency Injection (InversifyJS)
+- Redux Toolkit (for state management)
+- Redux Thunk (for async operations)
+
 ## Step 1: Open API Generator - Generate API Client directory for the external APIs
 
 ### Introduction
@@ -22,6 +29,16 @@
 - The above command will generate API related files inside the `api_client` directory.
 - It will generate typescript files along with axios for the data fetching.
 
+- Install `axios` for data fetching
+
+    ```sh
+    npm install axios
+
+    Or
+
+    yarn add axios
+    ```
+
 ### Usage
 
 1. Inside `api.ts` under `src`, import API class from generated files and make an instance.
@@ -43,3 +60,18 @@
     const fetchedUser = await userApi.getUserById(id);
     ```
 
+## Step 2: Dependency injection - Using inversify
+
+### Introduction
+
+- InversifyJS is a tool that helps JavaScript developers write code with good OO design that adheres to the SOLID principles.
+
+### Installation
+
+```sh
+npm install inversify reflect-metadata --save
+
+or 
+
+yarn add inversify reflect-metadata
+```
