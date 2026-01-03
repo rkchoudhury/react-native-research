@@ -2,6 +2,13 @@
   "extends": "@react-native/typescript-config",
   "compilerOptions": {
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "types": ["reflect-metadata"],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "paths": {
+      "@api/*": ["./api_client/*"],
+      "@src/*": ["./src/*"],
+    }
   }
 }

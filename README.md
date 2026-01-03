@@ -68,10 +68,32 @@ The application follows `Clean Architecture` with `MVVM` pattern using:
 
 ### Installation
 
-```sh
-npm install inversify reflect-metadata --save
+- Install `inversify` and `reflect-metadata` npm packages
 
-or 
+    ```sh
+    npm install inversify reflect-metadata --save
 
-yarn add inversify reflect-metadata
-```
+    or 
+
+    yarn add inversify reflect-metadata
+    ```
+
+### Setup
+
+- Do the following `tsconfig.json` file changes
+
+    ```js
+    {
+        "compilerOptions": {
+            "target": "es5",
+            "lib": ["es6"], // Add this
+            "types": ["reflect-metadata"], // Add this
+            "module": "commonjs",
+            "moduleResolution": "node",
+            "experimentalDecorators": true, // Add this
+            "emitDecoratorMetadata": true // Add this
+        }
+    }
+    ```
+
+### Usages

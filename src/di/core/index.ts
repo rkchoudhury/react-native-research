@@ -1,4 +1,3 @@
-import { inject, injectable, decorate } from 'inversify';
 import { InjectContainer } from './inversify-container';
 import { InversifyContext } from './contexts/InversifyContext';
 import { InversifyProvider } from './contexts/InversifyProvider';
@@ -9,7 +8,4 @@ export {
   InversifyContext,
   InversifyProvider,
   useInjection,
-  inject,
-  injectable,
-  decorate,
 };

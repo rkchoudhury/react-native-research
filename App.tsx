@@ -1,5 +1,6 @@
 import Screen1 from './src/Screen1';
-import { InjectContainer, InversifyProvider } from './src/di/core';
+import { InversifyProvider } from './src/di/core';
+import { InjectContainer } from './src/di/injectContainer';
 
 function App() {
   return (
