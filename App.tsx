@@ -3,6 +3,7 @@ import { InversifyProvider } from './src/di/core';
 import { InjectContainer } from './src/di/injectContainer';
 
 function App() {
+  console.log("App InjectContainer:", InjectContainer);
   return (
      <InversifyProvider container={InjectContainer}>
       <Screen1 />

@@ -97,3 +97,23 @@ The application follows `Clean Architecture` with `MVVM` pattern using:
     ```
 
 ### Usages
+
+1. Wraps
+
+## Step 3: PerService
+
+## Step 4:
+
+- react-native-url-polyfill: 
+    - react-native-url-polyfill/auto provides the URL and URLSearchParams APIs that aren't fully implemented in React Native's JavaScript engines (like Hermes or JSC). Some networking libraries depend on these APIs.
+    - The polyfill only needs to be imported once at app startup.
+    - The api-client axios is not working
+
+- babel-plugin-module-resolver
+    - Used for resolving the import paths
+
+- babel-plugin-transform-typescript-metadata
+    <!-- - To resolve the injectable error -->
+
+- @babel/plugin-proposal-decorators
+    - To resolve the injectable error
